@@ -1,0 +1,97 @@
+/* {
+   border: 1px solid lightgrey;
+} */
+
+/* OZDOBNY FONT: font-family: 'Lalezar', sans-serif;
+*/
+body, span, div, table, tr, tbody, tfoot, td, hr, p {
+    -webkit-print-color-adjust: exact;
+}
+
+body, html {
+  font-family: 'Fira Sans', sans-serif;
+  overflow: auto;
+  overflow-x: hidden;
+  font-weight: 100;
+  letter-spacing: auto;
+
+  color: black;
+
+  background:linear-gradient(0deg,rgba(240, 240, 240, 0.8),rgba(240, 240, 240, 0.8)),url("http://i.i_____mgur.com/FQRpGmS.jpg");
+  background-size:cover;
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  background-position: top center;
+  background-attachment: fixed;
+
+}
+
+p,div,span,ul,li,header,section {color:black;}
+
+a {
+  color:#C06014;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #C06014;
+  text-decoration: underline;
+}
+
+.gold_border{
+  border: solid 1px #C06014;
+}
+
+p::selection {
+  background: red; /* WebKit/Blink Browsers */
+  color: white;
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px black;
+}
+
+p::-moz-selection {
+  background: red; /* Gecko Browsers */
+  color: white;
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px black;
+}
+
+
+/*  #d82735 #ff7435 #ffa135 #334431  - kolory strony */
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+
+.icon {
+  height:30px;
+  width: 30px;
+}
+
+.floatleft {
+  float:left;
+  clear: both;
+}
+
+
+.verticalLine {
+  height: 100%;
+  width: 1px;
+  border-left: thick solid #ff0000;
+  border-right: thick solid #ff0000;
+}
+
+.kor-border {
+  background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, white, rgba(0, 0, 0, 0.1), white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, white, rgba(0, 0, 0, 0.1), white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, white, rgba(0, 0, 0, 0.1), white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, white, rgba(0, 0, 0, 0.1), white); /* Standard syntax */
+  border: 0.3em solid lightgrey;
+  padding: 0.5em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}

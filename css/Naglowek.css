@@ -1,0 +1,387 @@
+.MainHead {
+  display: block;
+  margin: 0 auto;
+  margin-top:40px;
+  margin-bottom: 100px;
+  padding: 50px;
+}
+
+#containters_landing_page{
+
+  padding-top: 1em;
+  padding-top: 0px;
+  text-align: center;
+  float: right;
+  width: 100%;
+
+}
+
+.kontenerki_mao {
+
+    float: right;
+
+    height: 20%;
+    display: block;
+    max-width: 23.9%;
+    margin: 0.6em;
+    margin-left: 0;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    padding: 0.3em;
+    text-align: center;
+    color: lightgrey;
+    font-size: 1.2em;
+}
+
+
+.kolor_mao_1 {
+  background-color: #18121E;
+}
+
+.kolor_mao_2 {
+  background-color: #233237;
+}
+
+.kolor_mao_3 {
+  background-color: #984B43;
+}
+
+.kolor_mao_4 {
+  background-color: #C06014;
+  margin-right: 0 !important;
+}
+
+.tekst_strona_glowna{
+
+
+
+}
+
+.tekst_kont_glowna{
+  background-color: white; 
+  padding:1em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tekst_kontakt_glowna{
+    font-size: 1.3em;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.galeria{
+
+  padding:0 !important;
+  width: 100%;
+  height: 30em;
+
+}
+
+
+.galeria_zdj{
+
+  background-color: grey;
+  background-size:cover;
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  background-position: center;
+  background-attachment: local;
+  color: white;
+  height: 30em;
+  background-repeat: no-repeat;
+
+  box-shadow:0px 3px 5px lightgrey;
+}
+
+#slajd_1{
+  background-image:url("http://i.imgur.com/Mmw9P4r.jpg");
+}
+
+#slajd_2{
+  background-image:url("http://i.imgur.com/U6qN9ig.jpg");
+}
+
+#slajd_3{
+  background-image:url("http://i.imgur.com/oNDEw86.jpg");
+}
+
+#slajd_4{
+  background-image:url("http://i.imgur.com/Knk3XqM.jpg");
+}
+
+#slajd_5{
+  background-image:url("http://i.imgur.com/6FUt20v.jpg");
+}
+
+#slajd_6{
+  background-image:url("http://i.imgur.com/4CFxbnS.jpg");
+}
+
+/*
+
+@media and (-webkit-min-device-pixel-ratio:0) {
+  #slajd_1{
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.0) 65%,rgba(0,0,0,1) 65%,rgba(0,0,0,0.7) 100%),url("http://i.imgur.com/Mmw9P4r.jpg") 100%  !important;
+
+  }
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    #slajd_1{
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.0) 65%,rgba(0,0,0,1) 65%,rgba(0,0,0,0.7) 100%),url("http://i.imgur.com/Mmw9P4r.jpg") 100%  !important;
+
+    }
+}
+
+
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+  #slajd_1 {-chrome-:only(;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%,rgba(255,255,255,0.0) 65%,rgba(0,0,0,1) 65%,rgba(0,0,0,0.7) 100%),url("http://i.imgur.com/Mmw9P4r.jpg") 100%   !important;
+
+  );}
+}
+*/
+
+
+.cytat {
+  border: 2px solid #C06014;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 25px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+
+}
+
+.cytat_img{
+  width: 20px;
+
+}
+
+#o_Nas{
+  padding: 50px;
+  margin-top: 50px;
+}
+
+.o_Nas{
+  padding: 50px;
+}
+
+.pole {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+.section_tekst_O_Nas {
+
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 14.5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+.bok{
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.section_baner_boczny_O_Nas{
+
+  width: 100%;
+  height: 28em;
+  padding: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  clear: both;
+}
+
+.section_baner_boczny_O_Nas ul {
+  clear: both;
+  list-style: none;
+}
+
+.section_baner_boczny_O_Nas ul li {
+
+}
+
+.podopieczni_O_Nas_head {
+
+  float: left;
+  font-size: 20px;
+}
+
+.podopieczni_O_Nas_teskt {
+  font-size: 15px;
+
+}
+
+#gold_hr {
+  position: relative;
+  left:19%;
+  width: 40%;
+  height: 2px;
+  background-color: #C06014;
+  margin-top:0;
+  margin-bottom: 6px;
+}
+
+/* css cennika */
+
+.quote-card {
+  background: #fff;
+  color: #222222;
+  padding: 20px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+.quote-card p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 80%;
+}
+.quote-card cite {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  font-weight: 200;
+  opacity: 0.8;
+}
+.quote-card:before {
+  font-family: Georgia, serif;
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
+}
+.quote-card:after {
+  font-family: Georgia, serif;
+  content: "”";
+  position: absolute;
+  bottom: -110px;
+  line-height: 100px;
+  right: -32px;
+  font-size: 25em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
+}
+
+.kontener_cena {
+  margin: 0 auto;
+  margin-top: 10px;
+  width:80%;
+  height: 150px;
+  border: 2px solid #CDCDCD;
+  border-right: 2px solid #C06014;
+  border-bottom: 2px solid #C06014;
+  padding-top: 20px;
+}
+
+#Misja_i_wizja{
+  padding: 4em;
+}
+
+#Misja_i_wizja_zdj p {
+  position: relative;
+  top:95%;
+  left:30%;
+  display: block;
+  color: white;
+}
+
+#Misja_i_wizja_zdj{
+  padding: 40px;
+  height: 35em;
+  background-image: url("../images/wizja.jpg");
+  opacity: 0.8;
+  background-position: center;
+  background-size: cover;
+}
+
+#Czemu_warto_nam_zaufac_tekst{
+  padding: 4em;
+  padding-top: 50px;
+}
+
+#Czemu_warto_nam_zaufac_tekst_zdj{
+  padding: 40px;
+  height: 35em;
+  background-image: url("../images/lorem obrazek.jpg");
+  opacity: 0.8;
+  background-position: center;
+  background-size: cover;
+}
+
+#Czemu_warto_nam_zaufac_tekst_zdj p{
+position: relative;
+top:95%;
+left:55%;
+display: block;
+color: black;
+}
+
+#Menu_small{
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.just{
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.2em;
+  letter-spacing: 0.006em;
+  font-size:0.93em;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.dropbtn3{
+  background-color: white;
+}
+
+.dropdown-content3{
+  margin-top: 1em;
+
+}
+
+
+.tekst_caption{
+  left:0%;
+  width: 100%;
+  background-color: rgb(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.7);
+  display: inline-block;
+  bottom: 0%;
+  height: 30%;
+}
+.tekst_caption h5{
+padding: 2%;
+text-align: left;
+font-size: 30px !important;
+}
+
+#Menu_small{
+  display:none;
+}
+
+
+
+
+@media screen and (max-width : 800px){
+
+
+}

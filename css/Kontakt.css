@@ -1,0 +1,38 @@
+.containter_kontakt{
+  padding: 20px;
+  padding-top: 60px;
+  margin: 20px;
+}
+
+.head_formularz {
+  padding: 10px;
+}
+
+.formularz{
+
+}
+
+#send_btn {
+  background-color: #C06014;
+}
+
+
+.dane_firmy {
+  margin-top: 20px;
+  margin-left: 40px;
+  padding: 20px;
+  padding-top: 45px;
+}
+
+.opis_kontakt{
+  text-align: center;
+  letter-spacing: 0px;
+}
+
+.Kontakt{
+
+}
+
+#sposob_zapisu{
+  text-align: left;
+}

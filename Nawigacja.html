@@ -1,0 +1,90 @@
+<!-- Navigation -->
+
+<div class="se-pre-con"></div>
+
+<nav class="">
+  <div id="Menu" class="fixed-top fadeIn">
+
+      <!--  menu -->
+
+          <ul>
+            <li id="Logo" style="float:left;">
+              <a href="Strona-Glowna.php"><img class="MainHead_img" src="http://i.imgur.com/bjZiBuG.png"
+                href="#page-top" style="height:1.9em;" onload="resize();"/></a>
+            <!-- <a href="#page-top">EXCELLENT TUTORS</a> -->
+            </li>
+          </ul>
+
+          <ul>
+            <li id="Logo2" style="float:left; display:none;">
+              <a href="Strona-Glowna.php"><img class="MainHead_img" src="images/sylwetka.png" href="#page-top" style="height:2em;"/></a>
+            <!-- <a href="#page-top">EXCELLENT TUTORS</a> -->
+            </li>
+          </ul>
+
+
+        <ul id="Menu_ul">
+
+          <li>
+              <a href="Kontakt.php" class=" " style="border-left:1px solid grey; padding-left:1em; padding-right:1em;">ZAPISZ SIĘ</a>
+          </li>
+
+          <li>
+            <a href="Dla-ucznia.php" style="border-left:1px solid grey; padding-left:1em; padding-right:1em;">DLA UCZNIA</a>
+          </li>
+
+          <style>
+
+          </style>
+          <li>
+              <div class="dropdown">
+               <button id="cont-drop1" onclick="" class="dropbtn" style="border-left:1px solid grey; cursor:pointer;">▼ OFERTA</button>
+               <div id="myDropdown" class="dropdown-content">
+                 <a href="Przedmioty.php" class=" ">PRZEDMIOTY</a>
+                 <a href="Cennik.php" class=" ">CENNIK</a>
+
+               </div>
+             </div>
+
+          </li>
+
+          <li>
+            <div class="dropdown2">
+             <button id="cont-drop2" class="dropbtn2" style="cursor:pointer;">▼ O NAS</button>
+             <div id="myDropdown2"  class="dropdown-content2" style="display:none;">
+               <a href="Misja-i-wizja.php" class=" ">MISJA I WIZJA</a>
+               <a href="Zaufali-Nam.php" class=" ">ZAUFALI NAM</a>
+               <a href="Nasza-kadra.php" class=" ">NASZA KADRA</a>
+               <a href="Praca.php" class=" ">PRACA</a>
+             </div>
+           </div>
+          </li>
+
+          <script type="text/javascript">
+
+          $(document).ready(function(){
+            $(".dropdown2").mouseover(function(){
+             $("#myDropdown2").stop(true, false, true).slideDown("fast");
+            });
+            $(".dropdown2").mouseout(function(){
+             $("#myDropdown2").slideUp("fast");
+            });
+            $(".dropdown").mouseover(function(){
+             $("#myDropdown").stop(true, false, true).slideDown("fast");
+            });
+            $(".dropdown").mouseout(function(){
+             $("#myDropdown").slideUp("fast");
+            });
+          });
+          </script>
+
+          <li>
+              <a href="Aktualnosci.php" class=" " style="border-right:1px solid grey;padding-right:1em; background-color:white;
+              z-index:12;">AKTUALNOŚCI</a>
+          </li>
+
+        </ul>
+
+    </div>
+
+</nav>
