@@ -48,10 +48,14 @@
         <div class="col-md-6">
           <h3>Mapa Strony</h3>
           <hr>
-          <p>
-              <?php wp_nav_menu(
-              array( 'theme_location' => 'main-menu' ),
-              array('menu_class' => 'foot-menu')          ); ?>
+          <div style="text-align: center; padding-top:1em;">
+              <div style="display: inline-block; text-align: left;">
+                <?php wp_nav_menu(
+                array( 'theme_location' => 'main-menu' ),
+                array('menu_class' => 'foot-menu')          ); ?>
+              </div>
+          </div>
+
           </p>
         </div>
 
@@ -84,22 +88,17 @@
 .footcontainer p, .footcontainer h3, .footcontainer h5{
   text-align:  center;
 }
-
-.footcontainer .menu-menu-1-container ul{
+.footcontainer .menu-menu-1-container ul li a{
   letter-spacing: 3px;
   text-align: center;
-  list-style-type: circle;
 }
-
-.footcontainer .menu-menu-1-container ul ul{
+.footcontainer .menu-menu-1-container ul ul li a{
   letter-spacing: 0px;
   padding: 1em;
 }
-
 .footcontainer .fa-phone {
   font-size: 1em !important;
 }
-
 </style>
 
 </body>

@@ -12,13 +12,16 @@ $5 : rgba(0,0,0,0.05);
     // font-family: 'PT Serif', serif;
     $f2 : 'PT Serif';
 
-body, html{background-color: $2; color: $3; font-family: $f1, sans-serif;overflow-x: hidden;}
+body, html{background:
+  linear-gradient(to right, #fdedd6 , $2, $2, $2, $2, $2, $2, $2, $2,#fdedd6);
+  color: $3; font-family: $f1, sans-serif;overflow-x: hidden;}
 
 a{color: $3; text-decoration: none;}
 a:hover{color: $1; text-decoration: underline;;}
 
-h1,h2,h3,h4,h5,h6{font-family: $f2, serif;}
-p{font-family: $f1, sans-serif; font-size: 1.1em; line-height: 1.5em;}
+h1,h2,h3,h4,h5,h6{font-family: $f2, serif;text-decoration-color:$0 !important;}
+p{font-family: $f1, sans-serif; font-size: 1.1em; line-height: 1.5em;
+    text-decoration-color:$0 !important;}
 
 #menu_main{position: fixed; width: 100%; z-index:100;background-color: $2;}
 
@@ -153,9 +156,9 @@ hr{
   }
 }
 
-div[class^="col-"]{
-  margin-bottom: 1em;
-}
+// div[class^="col-"]{
+//   margin-bottom: 1em;
+// }
 
 .dark-gold{color:#e39a32;}
 
@@ -167,7 +170,21 @@ div[class^="col-"]{
 .pad-top {padding-top:1em;}
 .pad-bottom {padding-bottom:1em;}
 
-.text-box{  box-shadow: 0 0 10px lightgrey; }
+.text-box{  box-shadow: 0 0 10px lightgrey; padding:1em;}
+
+.super-padding{font-size: 0.9em;}
+
+.bg-odd{
+  // background: linear-gradient(to right, #fdedd6 , $2, $2, $2, $2, #fdedd6);
+}
+
+.bg-even{
+  // background: linear-gradient(to left, #fdedd6 , $2, $2,$2, $2,  #fdedd6);
+}
+
+.container-fluid {
+   padding: 0 !important;
+}
 
 
 @media screen and (max-width:980px){
@@ -179,6 +196,13 @@ div[class^="col-"]{
     // max-width: 800px;
   }
 }
+
+@media screen and (max-width:600px){
+  body, html{background:
+    linear-gradient(to right, #fdedd6 , $2, $2, $2, $2, $2, $2, $2, $2,
+    $2, $2, $2, $2, $2,#fdedd6);}
+}
+
 
 @media screen and (max-width:500px){
   .container{

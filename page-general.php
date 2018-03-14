@@ -10,7 +10,20 @@
 
   </section>
 
-  <div class="container">
+  <section>
+    <?php if ( get_field( 'baner_under_title') ) { ?>
+      <div class="container-fluid">
+        <div style="background-image:url(<?php the_field( 'baner_under_title' ); ?>);
+          height:5em;" />
+          <?php if ( get_field( 'baner_under_title') ) { ?>
+          	<img src="<?php the_field( 'baner_under_title' ); ?>" />
+          <?php } ?>
+        </div>
+      </div>
+    <?php } ?>
+  </section>
+
+  <div class="container" style="padding-bottom:50px;">
     <div class="row">
       <?php if (get_field( 'opis_strony' )) {  ?>
       <div class="col-md-12 pad-bottom">
@@ -21,6 +34,7 @@
       </div>
       <?php }  ?>
     </div>
+
     <div class="col-md-12">
       <?php  $pageid = get_the_id();
       $content_post = get_post($pageid);
@@ -31,10 +45,5 @@
     </div>
   </div>
 
-
-
-<section>
-
-</section>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

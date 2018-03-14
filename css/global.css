@@ -3,7 +3,7 @@ body, html {
   padding: 0;
 }
 body, html {
-  background-color: #f7f7f7;
+  background: linear-gradient(to right, #fdedd6, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #fdedd6);
   color: #575757;
   font-family: 'PT Sans', sans-serif;
   overflow-x: hidden;
@@ -18,11 +18,13 @@ a:hover {
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'PT Serif', serif;
+  text-decoration-color: #edb059 !important;
 }
 p {
   font-family: 'PT Sans', sans-serif;
   font-size: 1.1em;
   line-height: 1.5em;
+  text-decoration-color: #edb059 !important;
 }
 #menu_main {
   position: fixed;
@@ -212,9 +214,6 @@ hr {
 .container p {
   padding: 0.3em;
 }
-div[class^="col-"] {
-  margin-bottom: 1em;
-}
 .dark-gold {
   color: #e39a32;
 }
@@ -235,10 +234,22 @@ div[class^="col-"] {
 }
 .text-box {
   box-shadow: 0 0 10px lightgrey;
+  padding: 1em;
+}
+.super-padding {
+  font-size: 0.9em;
+}
+.container-fluid {
+  padding: 0 !important;
 }
 @media screen and (max-width: 980px) {
   div[class^="col-"] div, div[class^="col-"] p, div[class^="col-"] h1, div[class^="col-"] h2, div[class^="col-"] h3, div[class^="col-"] h4, div[class^="col-"] h5, div[class^="col-"] h6 {
     padding: 0 0.2em 0 0.2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  body, html {
+    background: linear-gradient(to right, #fdedd6, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #fdedd6);
   }
 }
 @media screen and (max-width: 500px) {
