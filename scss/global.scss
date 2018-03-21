@@ -12,9 +12,7 @@ $5 : rgba(0,0,0,0.05);
     // font-family: 'PT Serif', serif;
     $f2 : 'PT Serif';
 
-body, html{background:
-  linear-gradient(to right, #fdedd6 , $2, $2, $2, $2, $2, $2, $2, $2,#fdedd6);
-  color: $3; font-family: $f1, sans-serif;overflow-x: hidden;}
+
 
 a{color: $3; text-decoration: none;}
 a:hover{color: $1; text-decoration: underline;;}
@@ -186,6 +184,15 @@ hr{
    padding: 0 !important;
 }
 
+#content ul {
+  padding: 1em;
+  list-style-type: disc !important;
+}
+
+#content img{
+  // width: 100%;
+  max-width: 100%;
+}
 
 @media screen and (max-width:980px){
   div[class^="col-"] {

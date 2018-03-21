@@ -2,12 +2,6 @@ body, html {
   margin: 0;
   padding: 0;
 }
-body, html {
-  background: linear-gradient(to right, #fdedd6, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #f7f7f7, #fdedd6);
-  color: #575757;
-  font-family: 'PT Sans', sans-serif;
-  overflow-x: hidden;
-}
 a {
   color: #575757;
   text-decoration: none;
@@ -241,6 +235,13 @@ hr {
 }
 .container-fluid {
   padding: 0 !important;
+}
+#content ul {
+  padding: 1em;
+  list-style-type: disc !important;
+}
+#content img {
+  max-width: 100%;
 }
 @media screen and (max-width: 980px) {
   div[class^="col-"] div, div[class^="col-"] p, div[class^="col-"] h1, div[class^="col-"] h2, div[class^="col-"] h3, div[class^="col-"] h4, div[class^="col-"] h5, div[class^="col-"] h6 {

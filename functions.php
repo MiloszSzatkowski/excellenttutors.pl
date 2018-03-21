@@ -112,10 +112,14 @@ function editglobalcustomfields() {
 	<p><strong>NAZWA FIRMY:</strong><br />
 	<input type="text" name="nazwa_firmy" size="80" value="<?php echo get_option('nazwa_firmy'); ?>" /></p>
 
+	<p><strong>Link do obrazka, który będzię tłem całej strony:</strong><br />
+	<input type="text" name="tlo_strony" size="80" value="<?php echo get_option('tlo_strony'); ?>" /><br>
+  <img src="<?php echo get_option('tlo_strony'); ?>" style="width:20%;" /></p>
+
 	<p><input type="submit" name="Submit" value="Update Options" /></p>
 
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="mytel,url_baner,meta_google,meta_mail,meta_key,author,nip,regon,adres,nazwa_firmy" />
+	<input type="hidden" name="page_options" value="mytel,url_baner,meta_google,meta_mail,meta_key,author,nip,regon,adres,nazwa_firmy,tlo_strony" />
 
 	</form>
 	</div>

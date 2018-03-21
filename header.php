@@ -18,6 +18,20 @@
 
 <body <?php body_class(); ?>>
 
+<style media="screen">
+
+<?php $url = get_option('tlo_strony'); ; ?>
+
+body, html{
+  background-image: url(<?=$url?>);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+
+
+</style>
+
 
 <header id="header">
 
