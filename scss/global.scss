@@ -1,4 +1,4 @@
-body, html{ margin: 0; padding: 0;}
+body, html{ margin: 0; padding: 0; overflow-x: hidden; }
 
 $0 : #edb059;
 $1 : #C06014;
@@ -40,7 +40,9 @@ nav{
     display: block;
     .sub-menu { display:none; position: absolute; z-index: 100;
       padding-top:10px; text-align: left; background-color: $2; min-width: 300px;
+      padding: 0;
       :first-child a {border-top: 4px solid $0; padding: 0.5em 0.2em 0 1em;}
+
       li{width: 100%; border-bottom: 1px solid $5; padding: 0.5em 0 0.5em 0!important;}
       a{ width: 100%; display: block; padding: 0.5em 0.2em 0 1em;}
     }
@@ -59,6 +61,13 @@ nav{
   }
 
 }
+
+@media screen and (max-width:850px){
+    #menu_main,#zaslona{
+      display: none!important;
+    }
+}
+.bar_logo{float: left; padding: 0!important;}
 
 
 #zaslona{height: 155px;}
@@ -158,9 +167,129 @@ hr{
 //   margin-bottom: 1em;
 // }
 
+// data_opinie
+
+#carousel {
+position: relative;
+width:80%;
+margin:0 auto;
+}
+
+#slides {
+  width:100%;
+overflow: hidden;
+position: relative;
+height: auto;
+}
+
+#slides ul {
+
+  width:100%;
+list-style: none;
+margin: 0;
+position: relative;
+}
+
+ #slides li {
+   transform: translateX(-1em);
+list-style: none;
+width:100%;
+float:left;
+text-align: center;
+position: relative;
+font-family:$f1, sans-serif;
+}
+
+.btn-bar{
+    max-width: 346px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: 0px;
+    width: 100%;
+}
+
+ #buttons {
+
+padding:0 0 5px 0;
+float:right;
+}
+
+#buttons a {
+  transform: translateX(-0.7em);
+text-align:center;
+display:block;
+font-size:50px;
+float:left;
+outline:0;
+margin:0 60px;
+color:$4;
+text-decoration:none;
+display:block;
+padding:9px;
+width:35px;
+}
+
+a#prev:hover, a#next:hover {
+color:black;
+}
+
+.quote-phrase, .quote-author {
+display: table-cell;
+vertical-align: middle;
+// padding: 0 10em 0 10em;
+// margin: 0 10em 0 10em;
+text-align: center;
+font-family:$f1, Calibri, Arial, sans-serif;
+}
+
+.quote-phrase {
+height: 200px;
+font-size:24px;
+color: $3;
+font-style:italic;
+}
+
+.quote-marks {
+font-size:30px;
+padding:0 3px 3px;
+position:inherit;
+}
+
+.q-author {
+text-align:center; width:100%;
+color:$0;
+}
+
+@media screen and (max-width:850px){
+  .quote-phrase,.quote-marks{
+  font-size: 18px !important;
+  }
+}
+
+
+// opinie
+
+.faded{
+  border-radius: 50%/50%;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
 .dark-gold{color:#e39a32;}
+.white{color:white;}
+
+$l : #e39a32;
+
+.grey-back-gradient{
+background: -moz-linear-gradient(left, rgba(125,185,232,0) 0%, $l 40%, $l 60%,rgba(100,100,100,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(125,185,232,0) 0%, $l 40%, $l 60%, rgba(100,100,100,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(125,185,232,0) 0%, $l 40%, $l 60%, rgba(100,100,100,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $l, endColorstr= $l,GradientType=1 );
+}
 
 .center{text-align: center;}
+
+.mar{margin: 60px 0 60px 0;}
 
 .mar-center{margin:0 auto;}
 
@@ -168,7 +297,7 @@ hr{
 .pad-top {padding-top:1em;}
 .pad-bottom {padding-bottom:1em;}
 
-.text-box{  box-shadow: 0 0 10px lightgrey; padding:1em;}
+.text-box{  box-shadow: 0 0 10px lightgrey; padding:1em; background-color: rgba(255,255,255,0.3);  }
 
 .super-padding{font-size: 0.9em;}
 
@@ -192,6 +321,29 @@ hr{
 #content img{
   // width: 100%;
   max-width: 100%;
+}
+
+img{max-width: 100%;}
+
+// forma
+.wpcf7-form{
+  label{padding: 1em;
+  }
+  label,input,select{ text-align: center; width: 100%; max-width: 100%; margin: 0 auto;
+  }
+  input,select, textarea{border-radius: 5px; border:0; box-shadow: 0 0 3px $1;
+  }
+    textarea{width: 100%;}
+    input:hover,select:hover,textarea:hover{
+      box-shadow: 0 0 10px $1;
+    }
+    input:focus,select:focus,textarea:focus{
+      box-shadow: 0 0 20px $1; outline: none;
+    }
+  .wpcf7-submit{border-radius: 5px; border: 1px solid lightgrey; margin-top: 2em;width: 40%;
+  }
+  input[type=checkbox], input[type=radio]{border: 1px solid red;
+  }
 }
 
 @media screen and (max-width:980px){

@@ -87,166 +87,75 @@ jQuery(document).ready(function( $ ) {
     else{dg.removeClass('anim');}
 });
 
-  var set = false;
+    var speed = 6000;
 
-  if (!jQuery.contains(document, $('.carousel-inner')) && window.innerWidth>600) {
-  set = true;
-  }
+    var run = setInterval(rotate, speed);
+    var slides = $('.slide');
+    var container = $('#slides ul');
+    var elm = container.find(':first-child').prop("tagName");
+    var item_width = container.width();
+    var previous = 'prev'; //id of previous button
+    var next = 'next'; //id of next button
+    slides.width(item_width); //set the slides to the correct pixel width
+    container.parent().width(item_width);
+    container.width(slides.length * item_width); //set the slides container to the correct total width
+    container.find(elm + ':first').before(container.find(elm + ':last'));
+    resetSlides();
 
-  if (set==true) {
 
-    console.log($('.galeria_zdj').eq(2).attr('alt'));
+    //if user clicked on prev button
 
-    $('.carousel-control-prev span').css('display','none');
-    $('.carousel-control-next span').css('display','none');
+    $('#buttons a').click(function (e) {
+        //slide the item
 
-    $('.carousel-control-prev span').fadeIn('slow');
-    $('.carousel-control-next span').fadeIn('slow');
+        if (container.is(':animated')) {
+            return false;
+        }
+        if (e.target.id == previous) {
+            container.stop().animate({
+                'left': 0
+            }, 1500, function () {
+                container.find(elm + ':first').before(container.find(elm + ':last'));
+                resetSlides();
+            });
+        }
 
+        if (e.target.id == next) {
+            container.stop().animate({
+                'left': item_width * -2
+            }, 1500, function () {
+                container.find(elm + ':last').after(container.find(elm + ':first'));
+                resetSlides();
+            });
+        }
 
-    var ind = 0;
-    var l = $('.carousel-inner .carousel-item').toArray();
+        //cancel the link behavior
+        return false;
 
-    $('.carousel-control-prev').click(function() {
-      clearInterval(inter);
-      if (ind==0) {
-        ind=l.length-1;
-      } else { ind--;
-      }
-      animateGallery();
-
-      inter = setInterval(changeIt, time);
     });
 
-    $('.carousel-control-next').click(function() {
-      clearInterval(inter);
-      if (ind==l.length-1 || ind>l.length) {
-        ind = 0;
-      } else { ind++;
-      }
-      animateGallery();
-
-      inter = setInterval(changeIt, time);
+    //if mouse hover, pause the auto rotation, otherwise rotate it
+    container.parent().mouseenter(function () {
+        clearInterval(run);
+    }).mouseleave(function () {
+        run = setInterval(rotate, speed);
     });
 
-    $('.carousel-inner').css('background-color','grey');
 
-    var time = 5000;
-    // getImageBrightness();
-    var inter = setInterval(changeIt, time);
-
-  function changeIt () {
-
-    animateGallery();
-
-    if (ind==l.length-1) {
-      ind = 0;
-    } else {
-      ind++;
+    function resetSlides() {
+        //and adjust the container so current is in the frame
+        container.css({
+            'left': -1 * item_width
+        });
     }
-  }
 
-  // var counter = [];
-
-  function animateGallery(){
-
-    // getImageBrightness(ind);
-
-    $('.bullet').css('background-color','rgba(255,255,255,0.6)');
-    $('.bullet').css('border','0');
-    $( "[data-slide-to='"+ind+"']").css('background-color','white');
-    $( "[data-slide-to='"+ind+"']").css('border','2px solid rgba(0,0,0,0.8)');
-    $('.carousel-inner .carousel-item').fadeOut('slow', 'linear');
-
-    setTimeout(function () {
-      $('.carousel-inner .carousel-item').eq(ind).fadeIn('slow', 'linear');
-    }, 500);
-
-    // console.log(counter);
-    // if ($.inArray(ind, counter) == -1){counter.push(ind); }
-  }
-
-  var ind_slide;
-
-  $('.bullet').click(function(){
-
-      clearInterval(inter);
-      ind_slide = $(this).attr('data-slide-to');
-      ind = parseInt(ind_slide);
-      animateGallery();
-      inter = setInterval(changeIt, time);
-  });
+    //a simple function to click next link
+    //a timer will call this function, and the rotation will begin
 
 
-  var indx=0;
-
-  while (indx<l.length) {
-    // if ($.inArray(ind, counter) !== -1){
-    //   console.log('Div ma klasę');
-    //   return;
-    // }
-
-      var imgSrc = new Image();
-      imgSrc.id = 'temp';
-      imgSrc.src = $('.galeria_zdj').eq(indx).data('custom-src');
-      imgSrc.style.display = "none";
-
-      console.log($('.galeria_zdj').eq(indx).data('custom-src'));
-      // console.log($('.galeria_tekst').eq(ind).hasClass('backgroundLight'));
-
-      var colorSum = 0;
-
-              // create canvas
-              var canvas = document.createElement("canvas");
-              canvas.width = Math.max(1, Math.floor(imgSrc.width));
-              canvas.height = Math.max(1, Math.floor(imgSrc.height));
-
-              var ctx = canvas.getContext("2d");
-              ctx.drawImage(imgSrc,0,0);
-
-              var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-              var data = imageData.data;
-              var r,g,b,avg;
-
-              for(var x = 0, len = data.length; x < len; x+=8) {
-                r = data[x];
-                g = data[x+1];
-                b = data[x+2];
-
-                avg = Math.floor((r+g+b)/3);
-                colorSum += avg;
-              }
-
-              $('canvas').remove();
-              $('#temp').remove();
-
-              var brightness = Math.floor(colorSum / (imgSrc.width*imgSrc.height));
-              console.log(brightness);
-
-              // wyzerowanie
-              colorSum = 0;
-              r = 0; g = 0; b = 0; avg = 0; data = 0;
-
-              if (brightness>65) {
-                $('.galeria_tekst').eq(indx).addClass('backgroundLight');
-                $('.galeria_tekst2').eq(indx).addClass('backgroundLight');
-              // } else if (brightness<71 && brightness>60) {
-              //   $('.galeria_tekst').eq(ind).addClass('background-complex ');
-              } else {
-                $('.galeria_tekst').eq(indx).addClass('backgroundDark');
-                $('.galeria_tekst2').eq(indx).addClass('backgroundDark');
-              }
-
-            indx++;
-            console.log(indx);
-          }
-          //koniec while
-
-        //   // koniec funkcji
-        // }
-
-      }
-      // koniec setIt
+    function rotate() {
+        $('#prev').click();
+    }
 
 });
 

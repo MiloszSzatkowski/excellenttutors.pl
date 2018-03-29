@@ -116,17 +116,21 @@ function editglobalcustomfields() {
 	<input type="text" name="tlo_strony" size="80" value="<?php echo get_option('tlo_strony'); ?>" /><br>
   <img src="<?php echo get_option('tlo_strony'); ?>" style="width:20%;" /></p>
 
+	<p><strong>Link do obrazka, który pokazuje gwiazdki w opiniach:</strong><br />
+	<input type="text" name="tlo_opinie" size="80" value="<?php echo get_option('tlo_opinie'); ?>" /><br>
+  <img src="<?php echo get_option('tlo_opinie'); ?>" style="width:20%;" /></p>
+
 	<p><input type="submit" name="Submit" value="Update Options" /></p>
 
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="mytel,url_baner,meta_google,meta_mail,meta_key,author,nip,regon,adres,nazwa_firmy,tlo_strony" />
+	<input type="hidden" name="page_options" value="mytel,url_baner,meta_google,meta_mail,meta_key,author,nip,regon,adres,nazwa_firmy,tlo_strony,tlo_opinie" />
 
 	</form>
 	</div>
   <?php
 }
-
-require_once ('simple_html_dom.php');
+//
+require_once ('simple_html_dom01.php');
 
 function theme_styles(){
   wp_enqueue_style( 'boostrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' );
@@ -135,150 +139,6 @@ function theme_styles(){
 
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
-function galeria_slajdy( $atts, $content ) {
-
-		$exp = array();
-		$alt = array();
-		$cap = array();
-		$link = array();
-
-		$ht = str_get_html($content);
-
-		foreach($ht->find('img') as $element) {
-
-			 array_push($exp,$element->src);
-
-			 $tt = $element->alt;
-			 $tt2 = explode('#',$tt);
-			 array_push($alt,$tt2[0]);
-			 array_push($cap,$tt2[1]);
-			 array_push($link,$tt2[2]);
-
-		}
-
-		// print_r($content);
-
-    $html = '<div class="d-md-none d-block">
-							<div class="d-none d-sm-block" style="background-color:lightgrey;padding:1em;">
-								<h5 style=" text-align:center; color:rgba(0,0,0,0.5)">
-								'.$alt[0].'
-								</h5>
-							</div>
-							<div>
-							<img src="'.$exp[0].'"'. ' ' .'style="width:100%;">
-							</div>
-						</div>
-						<div class="bd-example galeria_duza_kontener d-none d-md-block">
-            <div id="nawigacja_karuzeli_galerii_duzej_1"
-            class="carousel slide" data-ride="carousel"
-            >
-            <ol class="carousel-indicators">';
-            $ind = 0;
-
-
-          while($ind<count($exp)){
-
-            $src = $exp[$ind];
-
-
-                  if($ind == 0){
-
-                    $html .= '<div data-target="#nawigacja_karuzeli_galerii_duzej_1" data-slide-to="' . $ind . '"
-										class="bullet" style="">
-                    </div>';
-                  }
-                  if($ind > 0){
-                    $html .= '<div data-target="#nawigacja_karuzeli_galerii_duzej_1" data-slide-to="' . $ind . '"
-										class="bullet " style="">
-                    </div>';
-                  }
-            $ind++;
-          }
-          $ind = 0;
-          $html .= '</ol>';
-          $html .= '<div class="carousel-inner" role="listbox">';
-          while($ind<count($exp)){
-
-            $src2  = $exp[$ind];
-						$meta_alt = $alt[$ind];
-						$meta_cap = $cap[$ind];
-						$meta_link = $link[$ind];
-
-            if($ind == 0){
-
-              $html .= '
-                <div class="carousel-item active">
-                  <img id="" class="d-block img-fluid galeria_zdj" data-custom-src="'.$src2.'" alt=""
-                  src="" data-holder-rendered="true" style="background-image:url('.$src2.');"
-                   >
-                  <div class="carousel-caption d-md-block opis_karuzela black_high">
-
-									<div style="position:absolute; left:50%; top:-650%;">
-
-										<h1 class="galeria_tekst">
-										'.$meta_alt.'
-										</h1>
-
-										<div class="" style="position:relative;left:-50%; padding:1em;">'
-											.( isset($meta_cap)  ?
-											'<a href="'. $meta_link .'" style="display:block;">
-											<h2 class="galeria_tekst2">'.$meta_cap.'</h2></a>': ' ').
-
-										'</div>
-
-									</div>
-
-                  </div>
-                </div>';
-            }
-            if($ind > 0){
-              $html .= '
-                <div class="carousel-item">
-                  <img id="" class="d-block img-fluid galeria_zdj" data-custom-src="'.$src2.'" alt=""
-                  src="" data-holder-rendered="true" style="background-image:url('.$src2.');"
-                   >
-                  <div class="carousel-caption d-md-block opis_karuzela black_high">
-
-									<div style="position:absolute; left:50%; top:-650%;">
-
-										<h1 class="galeria_tekst">
-										'.$meta_alt.'
-										</h1>
-
-										<div class="" style="position:relative;left:-50%; padding:1em;">'
-											.( isset($meta_cap)   ?
-											'<a href="'. $meta_link .'" style="display:block;">
-											<h2 class="galeria_tekst2">'.$meta_cap.'</h2></a>': ' ').
-
-										'</div>
-
-									</div>
-
-                  </div>
-                </div>';
-            }
-            $ind++;
-          }
-
-          $html .= '</div>';
-          $html .='<a class="carousel-control-prev" data-target="#nawigacja_karuzeli_galerii_duzej_1" role="button" data-slide="prev"
-          style="">
-                    <span class="carousel-control-prev-icon" aria-none="true" style=""></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-
-              <a class="carousel-control-next" data-target="#nawigacja_karuzeli_galerii_duzej_1" role="button" data-slide="next"
-              style="">
-                <span class="carousel-control-next-icon" aria-none="true" style=""></span>
-                <span class="sr-only">Next</span>
-              </a>';
-
-      $html .= "</div></div>";
-
-      return $html;
-}
-
-add_shortcode( 'galeria_slajdy', 'galeria_slajdy' );
 
 //baner
 
@@ -308,6 +168,27 @@ return $html;
 
 add_shortcode( 'baner', 'baner' );
 
+//
+function imageFullWidth ($atts, $content) {
+	$html = "";
+	$exp = array();
+
+	$ht = str_get_html($content);
+
+	foreach($ht->find('img') as $element) {
+		 array_push($exp,$element->src);
+	}
+
+	foreach ($exp as $key) {
+		$html .= " <img style='width:100%' src='$key'> " ;
+	}
+
+	return $html;
+}
+
+add_shortcode( 'imageFullWidth', 'imageFullWidth' );
+//
+
 function gradient ($content){
 	$html =  '
 	<section id="" class="tlo_zapisz_sie" style="margin-top:2em;">
@@ -322,6 +203,20 @@ function gradient ($content){
 }
 
 add_shortcode( 'gradient', 'gradient' );
+
+//
+function gradientText ($atts, $content) {
+	return '
+	<div class="">
+	  <h1 class="white grey-back-gradient text-center pad mar" style="padding:2em; text-shadow: 1px 1px 5px rgba(0,0,0,0.4);">'
+		.	strip_tags($content) .
+		'</h1>
+	</div>';
+}
+
+add_shortcode( 'gradientText', 'gradientText' );
+
+
 
 // Connect the WordPress post editor to your custom stylesheet
 function my_theme_add_editor_styles() {
@@ -346,16 +241,97 @@ function create_posttype() {
             'rewrite' => array('slug' => 'tutorzy'),
         )
     );
+
+		register_post_type( 'blog',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'blog' ),
+                'singular_name' => __( 'blog' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'taxonomies' => array( 'category' ),
+            'rewrite' => array('slug' => 'blog'),
+        )
+    );
+
+		register_post_type( 'opinie',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'opinie' ),
+                'singular_name' => __( 'opinie' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'taxonomies' => array( 'category' ),
+            'rewrite' => array('slug' => 'opinie'),
+        )
+    );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
 
+//
+function opinie () {
+	wp_reset_query();
+	$html = '<div id="carousel">
+	  <div class="btn-bar">
+	    <div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a> </div></div>
+	    <div id="slides">
+	        <ul>';
+	$args1Xx = array( 'post_type' => 'opinie', 'posts_per_page' => 30 );
+	$loop1Xx = new WP_Query( $args1Xx );
+
+
+	while ( $loop1Xx->have_posts() ) : $loop1Xx->the_post();
+
+			$html .=
+
+		'<li class="slide">
+				<div class="quoteContainer">
+
+						<p class="quote-phrase">
+
+							<span class="quote-marks">"</span>
+
+							' . get_field( 'opinia' ) . '
+
+							<class="quote-marks">"</span>
+
+						</p>
+				</div>
+						<p class="q-author" style="">
+						'
+						. get_field( 'imie_opinie' ) . '</p>
+
+		</li>'
+
+		;
+
+	endwhile;
+
+	$html .= '
+			</ul>
+		</div>
+		</div>';
+
+	wp_reset_query();
+	return $html;
+}
+
+
+
+add_shortcode( 'opinie', 'opinie' );
+//
 
 //remove editor from custom posts types
 add_action( 'admin_init', 'hide_editor' );
 function hide_editor() {
 
   remove_post_type_support('tutorzy', 'editor');
+	remove_post_type_support('opinie', 'editor');
 
 	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
 		if( !isset( $post_id ) ) return;
@@ -386,22 +362,14 @@ function myplguin_admin_page(){
 	<div class="">
 		<p>Wszystkie strony tworzone są w edytorach tekstowych. Żeby uzyskać prawidłowy efekt, należy otaczać tekst i zdjęcia odpowiednimi kodami zamkniętymi w nawiasach [ ]. <p>Lista możliwości:
 
-<h2>Galeria - slider:</h2>
-
-<p><strong>[do_gallery]</strong>  tutaj wklej zdjęcia używając guzika "dodaj medium" <strong>[/do_gallery]</strong>
-
-<p>Dodatkowe ustawienia <strong>[do-gallery]</strong> :
-<p>Po kliknięciu na dodane zdjęcie, klikamy na ołówek, co przenosi nas do szczegółów obrazka. Wpisując w polu "Tekst alternatywny" tekst, pojawi się on na slajdzie w galerii.
-<p>Przykład:
-
-<p>Po prostu Excellent # szczegóły # http://excellenttutors.dev/index.php/cennik/ .
-
-<p>Separator # oddziela całostki, pierwsza całostka to motto, druga to tekst w guziku, a trzecia to link, do którego przekierowuje guzik. Jeżeli nie zostanie wypełniona któraś z dalszych całostek, tylko ona nie pojawi się ona na slajdzie.
-
-<p>Kod tworzy następującą galerię (fragment):
-	<img src="https://i.imgur.com/6GYgzvo.jpg" />
-<p>UWAGA - kolor tekstu dopasowuje się automatycznie do koloru tła, więc wrzucając ciemne zdjęcie - tekst automatycznie zmieni kolor na biały oraz odwrotnie.
+<h2>Baner na całą szerokość strony</h2>
+<p>Wrzucamy zdjęcie w tagi [imageFullWidth] [/imageFullWidth]</p>
 <p></p>
+<h2>Opinie</h2>
+<p>Tag [opinie] przywołuje wszystkie opinie w karuzeli.</p>
+<p></p>
+<h2>Tag [gradientText][/gradientText]</h2>
+<p>Tekst wrzucony w ten shortcode pojawi się jako wyśrodkowany element z tłem w postaci gradientu.</p>
 <h2>Kolumny i rzędy:</h2>
 <p>Do tworzenia kolumn i rzędów służy następująca konstrukcja:
 
